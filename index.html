@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Way West Apartments</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+        }
+        
+        body {
+            line-height: 1.6;
+            color: #333;
+            background-color: #f5f5f5;
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+        
+        header {
+            background-color: #2c3e50;
+            color: white;
+            padding: 1rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+        
+        .nav-links {
+            list-style: none;
+            display: flex;
+        }
+        
+        .nav-links li {
+            margin-left: 20px;
+        }
+        
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            transition: 0.3s;
+        }
+        
+        .nav-links a:hover {
+            color: #3498db;
+        }
+        
+        .hero {
+            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('/api/placeholder/1200/600') no-repeat center center/cover;
+            height: 70vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            padding-top: 60px;
+        }
+        
+        .hero-content h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+        
+        .hero-content p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+        }
+        
+        .btn {
+            display: inline-block;
+            background: #3498db;
+            color: white;
+            padding: 0.8rem 1.5rem;
+            border: none;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+        
+        .btn:hover {
+            background: #2980b9;
+        }
+        
+        section {
+            padding: 4rem 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+        
+        .section-title h2 {
+            font-size: 2rem;
+            color: #2c3e50;
+        }
+        
+        .about {
+            background: white;
+        }
+        
+        .about-content {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2rem;
+        }
+        
+        .about-text {
+            flex: 1 1 400px;
+        }
+        
+        .apartments {
+            background: #f9f9f9;
+        }
+        
+        .apartment-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        
+        .apartment-card {
+            background: white;
+            border-radius: 5px;
+            overflow: hidden;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+            transition: 0.3s;
+        }
+        
+        .apartment-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+        
+        .apartment-img {
+            height: 200px;
+            background: #ddd;
+            background-size: cover;
+            background-position: center;
+        }
+        
+        .apartment-details {
+            padding: 1.5rem;
+        }
+        
+        .apartment-details h3 {
+            margin-bottom: 0.5rem;
+            color: #2c3e50;
+        }
+        
+        .amenities {
+            background: white;
+        }
+        
+        .amenities-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+        }
+        
+        .amenity-item {
+            text-align: center;
+            padding: 1.5rem;
+            background: #f9f9f9;
+            border-radius: 5px;
+        }
+        
+        .amenity-icon {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            color: #3498db;
+        }
+        
+        .contact {
+            background: #f9f9f9;
+        }
+        
+        .contact-form {
+            max-width: 600px;
+            margin: 0 auto;
+            background: white;
+            padding: 2rem;
+            border-radius: 5px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+        }
+        
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: bold;
+        }
+        
+        .form-control {
+            width: 100%;
+            padding: 0.8rem;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        
+        textarea.form-control {
+            resize: vertical;
+        }
+        
+        .location {
+            background: white;
+        }
+        
+        .map-container {
+            height: 400px;
+            background: #ddd;
+            margin-top: 2rem;
+        }
+        
+        footer {
+            background: #2c3e50;
+            color: white;
+            text-align: center;
+            padding: 2rem 0;
+        }
+        
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 1rem;
+        }
+        
+        .footer-links a {
+            color: white;
+            margin: 0 15px;
+            text-decoration: none;
+        }
+        
+        .success-message {
+            display: none;
+            background-color: #4CAF50;
+            color: white;
+            padding: 15px;
+            margin-top: 20px;
+            border-radius: 5px;
+            text-align: center;
+        }
+        
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+            
+            .hero-content h1 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <nav>
+                <div class="logo">Way West Apartments</div>
+                <ul class="nav-links">
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#apartments">Apartments</a></li>
+                    <li><a href="#amenities">Amenities</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                    <li><a href="#location">Location</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Welcome to Way West Apartments</h1>
+                <p>Affordable, quality housing in a secure community</p>
+                <p style="margin-bottom: 2rem; font-weight: bold;">Our apartments lease quickly - submit your information today!</p>
+                <a href="https://www.zillow.com/renter-hub/applications/listing/1grpsnz4u7tjk/rental-application?utm_source=sohapplicationshare&utm_medium=desktopmweb&utm_campaign=applicationlinkshare" class="btn" target="_blank">Apply Through Zillow</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="about" class="about">
+        <div class="container">
+            <div class="section-title">
+                <h2>About Our Community</h2>
+            </div>
+            <div class="about-content">
+                <div class="about-text">
+                    <p>Way West Apartments provides quality, affordable housing options for individuals and families. Our gated community is designed to create a secure environment where residents can thrive.</p>
+                    <p>We offer income-based rental rates and participate in various housing assistance programs to ensure that comfortable, safe housing is accessible to those who need it most.</p>
+                    <p>Our on-site management team is dedicated to maintaining a clean, safe environment and responding promptly to resident needs.</p>
+                </div>
+                <div class="about-text">
+                    <h3>Leasing Process</h3>
+                    <p>Our apartments get leased out very fast. To apply:</p>
+                    <ul>
+                        <li>Submit your application through <a href="https://www.zillow.com/renter-hub/applications/listing/1grpsnz4u7tjk/rental-application?utm_source=sohapplicationshare&utm_medium=desktopmweb&utm_campaign=applicationlinkshare" target="_blank">Zillow</a></li>
+                        <li>Provide income stubs showing your last 3 months of salary</li>
+                        <li>Income requirements vary by household size</li>
+                        <li>Additional documentation may be required during the application process</li>
+                    </ul>
+                    <p>We work closely with applicants to ensure they are able to successfully lease an apartment. Fill out our contact form to be added to our notification list for upcoming availabilities.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="apartments" class="apartments">
+        <div class="container">
+            <div class="section-title">
+                <h2>Our Apartments</h2>
+            </div>
+            <div class="apartment-grid">
+                <div class="apartment-card">
+                    <div class="apartment-img" style="background-image: url('/api/placeholder/400/300')"></div>
+                    <div class="apartment-details">
+                        <h3>Studio Apartment</h3>
+                        <p>1 Bedroom, 1 Bathroom</p>
+                        <p>Starting from $995/month</p>
+                        <p>Cozy and efficient studio layout with modern amenities and ample natural light.</p>
+                    </div>
+                </div>
+                <div class="apartment-card">
+                    <div class="apartment-img" style="background-image: url('/api/placeholder/400/300')"></div>
+                    <div class="apartment-details">
+                        <h3>1 Bedroom Apartment</h3>
+                        <p>1 Bedroom, 1 Bathroom</p>
+                        <p>Starting from $1,245/month</p>
+                        <p>Spacious one-bedroom units with separate living area, updated kitchen and generous closet space.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="amenities" class="amenities">
+        <div class="container">
+            <div class="section-title">
+                <h2>Community Amenities</h2>
+            </div>
+            <div class="amenities-grid">
+                <div class="amenity-item">
+                    <div class="amenity-icon">🏡</div>
+                    <h3>Energy-Efficient Appliances</h3>
+                    <p>All units equipped with energy-saving appliances to reduce utility costs.</p>
+                </div>
+                <div class="amenity-item">
+                    <div class="amenity-icon">🚿</div>
+                    <h3>On-Site Laundry</h3>
+                    <p>Convenient laundry facilities available for all residents.</p>
+                </div>
+                <div class="amenity-item">
+                    <div class="amenity-icon">🔒</div>
+                    <h3>Gated Community</h3>
+                    <p>Three secure access gates providing enhanced security for all residents.</p>
+                </div>
+                <div class="amenity-item">
+                    <div class="amenity-icon">🛡️</div>
+                    <h3>Onsite Property Manager</h3>
+                    <p>Available Monday-Friday from 10am-6pm to assist with your needs.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="contact">
+        <div class="container">
+            <div class="section-title">
+                <h2>Contact Us / Join Waitlist</h2>
+                <p style="text-align: center; margin-bottom: 2rem;">Our apartments lease quickly! Submit your information to be added to our contact list for future availabilities.</p>
+            </div>
+            <div class="contact-form">
+                <form id="vacancy-form" action="https://formsubmit.co/seattleinvestorsgroup@gmail.com" method="POST">
+                    <!-- FormSubmit configuration -->
+                    <input type="hidden" name="_subject" value="New Way West Apartments Inquiry">
+                    <input type="hidden" name="_template" value="table">
+                    <input type="hidden" name="_captcha" value="false">
+                    <input type="hidden" name="_next" value="https://yourwebsite.com/thank-you.html">
+                    
+                    <div class="form-group">
+                        <label for="name">Full Name</label>
+                        <input type="text" id="name" name="name" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" name="email" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="phone">Phone Number</label>
+                        <input type="tel" id="phone" name="phone" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="household">Household Size</label>
+                        <select id="household" name="household" class="form-control" required>
+                            <option value="">Select</option>
+                            <option value="1">1 Person</option>
+                            <option value="2">2 People</option>
+                            <option value="3">3 People</option>
+                            <option value="4">4 People</option>
+                            <option value="5+">5+ People</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="unit-type">Interested In</label>
+                        <select id="unit-type" name="unit-type" class="form-control" required>
+                            <option value="">Select</option>
+                            <option value="studio">Studio ($995+)</option>
+                            <option value="1BR">1 Bedroom ($1,245+)</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Additional Information</label>
+                        <textarea id="message" name="message" class="form-control" rows="4"></textarea>
+                    </div>
+                    <button type="submit" class="btn">Submit Inquiry</button>
+                </form>
+                <div id="success-message" class="success-message">
+                    Thank you! Your information has been submitted. We will contact you about unit availabilities soon.
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="location" class="location">
+        <div class="container">
+            <div class="section-title">
+                <h2>Our Location</h2>
+            </div>
+            <p class="text-center">Conveniently located near public transportation, schools, and shopping centers.</p>
+            <div class="map-container">
+                <!-- Embedded Google Maps for the actual location -->
+                <iframe 
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2687.4705010333316!2d-122.34660562322808!3d47.69186167119102!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x549015d646e0d3f1%3A0x4f1ef5d8131c4e7f!2s8600%20Aurora%20Ave%20N%2C%20Seattle%2C%20WA%2098103!5e0!3m2!1sen!2sus!4v1715122392905!5m2!1sen!2sus" 
+                    width="100%" 
+                    height="100%" 
+                    style="border:0;" 
+                    allowfullscreen="" 
+                    loading="lazy" 
+                    referrerpolicy="no-referrer-when-downgrade">
+                </iframe>
+            </div>
+            <div style="text-align: center; margin-top: 20px;">
+                <p><strong>Address:</strong> 8600 Aurora Ave N, Seattle, WA 98103</p>
+                <p><strong>Office Hours:</strong> Monday-Friday: 10am-6pm | Saturday-Sunday: Closed</p>
+                <p><strong>Phone:</strong> (206) 486-6399 | (206) 271-1902</p>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-links">
+                <a href="#about">About</a>
+                <a href="#apartments">Apartments</a>
+                <a href="#amenities">Amenities</a>
+                <a href="#contact">Contact</a>
+                <a href="#location">Location</a>
+            </div>
+            <p>&copy; 2025 Way West Apartments. All Rights Reserved.</p>
+            <p>This property is an equal housing opportunity provider.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Form submission handling
+        document.getElementById('vacancy-form').addEventListener('submit', function(e) {
+            // Don't prevent default - let the form submit to FormSubmit
+            // We're just adding client-side feedback
+            
+            // Show success message (normally would happen on redirect)
+            setTimeout(function() {
+                document.getElementById('success-message').style.display = 'block';
+                document.getElementById('vacancy-form').reset();
+            }, 1000);
+        });
+    </script>
+</body>
+</html>
