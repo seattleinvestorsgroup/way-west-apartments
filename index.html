@@ -645,7 +645,7 @@
                     <input type="hidden" name="_subject" value="New Way West Apartments Inquiry">
                     <input type="hidden" name="_template" value="table">
                     <input type="hidden" name="_captcha" value="false">
-                    <input type="hidden" name="_next" value="https://yourwebsite.com/thank-you.html">
+                    <input type="hidden" name="_next" value="">
                     
                     <div class="form-group">
                         <label for="name">Full Name</label>
@@ -733,59 +733,60 @@
     </footer>
 
     <script>
-        // Form submission handling
         document.getElementById('vacancy-form').addEventListener('submit', function(e) {
-            // Don't prevent default - let the form submit to FormSubmit
-            // We're just adding client-side feedback
-            
-            // Show success message (normally would happen on redirect)
-            setTimeout(function() {
-                document.getElementById('success-message').style.display = 'block';
-                document.getElementById('vacancy-form').reset();
-            }, 1000);
+        e.preventDefault();
+        const formData = new FormData(this);
+        fetch('https://formsubmit.co/8a580919e4d6c280794c751ad0ecd88a', {
+            method: 'POST',
+            body: formData
+        })
+        .then(response => {
+            document.getElementById('success-message').style.display = 'block';
+            document.getElementById('vacancy-form').reset();
+            document.getElementById('success-message').scrollIntoView({
+                behavior: 'smooth'
+            });
+        })
+        .catch(error => {
+            console.error('Error:', error);
+            alert('Something went wrong. Please try again later.');
         });
+    });
 
-        // Carousel functionality
         document.addEventListener('DOMContentLoaded', function() {
-            // Setup each carousel
-            setupCarousel('studio-carousel');
-            setupCarousel('onebedroom-carousel');
-            setupCarousel('security-carousel');
-        });
+    // Setup each carousel
+    setupCarousel('studio-carousel');
+    setupCarousel('onebedroom-carousel');
+    setupCarousel('security-carousel');
+});
 
-        function setupCarousel(carouselId) {
-            const carousel = document.getElementById(carouselId);
-            const carouselInner = carousel.querySelector('.carousel-inner');
-            const prevBtn = carousel.querySelector('.prev-btn');
-            const nextBtn = carousel.querySelector('.next-btn');
-            const indicators = carousel.querySelectorAll('.carousel-indicator');
-            const items = carousel.querySelectorAll('.carousel-item');
-            let currentIndex = 0;
-
-            // Set initial position
+function setupCarousel(carouselId) {
+    const carousel = document.getElementById(carouselId);
+    if (!carousel) return; // Safety check
+    
+    const carouselInner = carousel.querySelector('.carousel-inner');
+    const prevBtn = carousel.querySelector('.prev-btn');
+    const nextBtn = carousel.querySelector('.next-btn');
+    const indicators = carousel.querySelectorAll('.carousel-indicator');
+    const items = carousel.querySelectorAll('.carousel-item');
+    let currentIndex = 0;
+    updateCarousel();
+    prevBtn.addEventListener('click', function() {
+        currentIndex = (currentIndex > 0) ? currentIndex - 1 : items.length - 1;
+        updateCarousel();
+    });
+nextBtn.addEventListener('click', function() {
+        currentIndex = (currentIndex < items.length - 1) ? currentIndex + 1 : 0;
+        updateCarousel();
+    });
+    indicators.forEach(function(indicator, index) {
+        indicator.addEventListener('click', function() {
+            currentIndex = index;
             updateCarousel();
+        });
+    });
 
-            // Previous button click
-            prevBtn.addEventListener('click', function() {
-                currentIndex = (currentIndex > 0) ? currentIndex - 1 : items.length - 1;
-                updateCarousel();
-            });
-
-            // Next button click
-            nextBtn.addEventListener('click', function() {
-                currentIndex = (currentIndex < items.length - 1) ? currentIndex + 1 : 0;
-                updateCarousel();
-            });
-
-            // Indicator clicks
-            indicators.forEach(function(indicator, index) {
-                indicator.addEventListener('click', function() {
-                    currentIndex = index;
-                    updateCarousel();
-                });
-            });
-
-function updateCarousel() {
+    function updateCarousel() {
         // Update carousel position
         carouselInner.style.transform = `translateX(-${currentIndex * 100}%)`;
         
@@ -799,9 +800,16 @@ function updateCarousel() {
         });
     }
 
-    // Auto-advance carousel (optional)
-    setInterval(function() {
+    // Auto-advance carousel
+    const interval = setInterval(function() {
         currentIndex = (currentIndex < items.length - 1) ? currentIndex + 1 : 0;
         updateCarousel();
     }, 5000); // Change slides every 5 seconds
+
+    // Clear interval when user interacts with carousel
+    carousel.addEventListener('click', function() {
+        clearInterval(interval);
+    });
 }
+    </script>
+        
