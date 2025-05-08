@@ -327,6 +327,55 @@
             background: white;
         }
         
+        /* Security Section Styling */
+        .security {
+            background: #f0f8ff;
+            padding: 4rem 0;
+        }
+        
+        .security-content {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2rem;
+            align-items: center;
+        }
+        
+        .security-text {
+            flex: 1 1 400px;
+        }
+        
+        .security-carousel-container {
+            flex: 1 1 400px;
+        }
+        
+        .security-features {
+            margin-top: 2rem;
+        }
+        
+        .security-feature {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1rem;
+            background: white;
+            padding: 1rem;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+        }
+        
+        .security-feature-icon {
+            font-size: 1.5rem;
+            margin-right: 1rem;
+            color: #3498db;
+        }
+        
+        .highlight-box {
+            background-color: #e3f2fd;
+            border-left: 4px solid #3498db;
+            padding: 1rem;
+            margin: 1.5rem 0;
+            border-radius: 0 5px 5px 0;
+        }
+        
         @media (max-width: 768px) {
             .nav-links {
                 display: none;
@@ -345,6 +394,7 @@
                 <div class="logo">Way West Apartments</div>
                 <ul class="nav-links">
                     <li><a href="#about">About</a></li>
+                    <li><a href="#security">Security</a></li>
                     <li><a href="#apartments">Apartments</a></li>
                     <li><a href="#amenities">Amenities</a></li>
                     <li><a href="#contact">Contact</a></li>
@@ -391,6 +441,64 @@
         </div>
     </section>
 
+    <!-- New Security Section -->
+    <section id="security" class="security">
+        <div class="container">
+            <div class="section-title">
+                <h2>Your Safety Is Our Priority</h2>
+            </div>
+            <div class="security-content">
+                <div class="security-text">
+                    <p>At Way West Apartments, we've invested in comprehensive security measures to ensure our residents enjoy peace of mind in their homes.</p>
+                    
+                    <div class="highlight-box">
+                        <h3>Our Gated Community</h3>
+                        <p>Three secure access gates provide controlled entry points to our community, ensuring only residents and authorized visitors can enter the premises.</p>
+                    </div>
+                    
+                    <div class="security-features">
+                        <div class="security-feature">
+                            <div class="security-feature-icon">🔒</div>
+                            <div>
+                                <h4>Electronic Gate Access</h4>
+                                <p>Personalized key fobs for residents ensure only authorized entry</p>
+                            </div>
+                        </div>
+                        <div class="security-feature">
+                            <div class="security-feature-icon">👁️</div>
+                            <div>
+                                <h4>24/7 Surveillance</h4>
+                                <p>Security cameras monitor common areas and entry points around the clock</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="security-carousel-container">
+                    <div class="carousel" id="security-carousel">
+                        <div class="carousel-inner">
+                            <div class="carousel-item">
+                                <img src="way-west-front-entrance.jpg" alt="Main Security Gate">
+                            </div>
+                            <div class="carousel-item">
+                                <img src="way-west-back-entrance.jpg" alt="Secondary Access Point">
+                            </div>
+                        </div>
+                        <div class="carousel-controls">
+                            <button class="carousel-control prev-btn">&lt;</button>
+                            <button class="carousel-control next-btn">&gt;</button>
+                        </div>
+                        <div class="carousel-indicators">
+                            <div class="carousel-indicator active" data-index="0"></div>
+                            <div class="carousel-indicator" data-index="1"></div>
+                        </div>
+                    </div>
+                    <p style="text-align: center; margin-top: 1rem;"><strong>Our secure gated entrances ensure controlled access to the community</strong></p>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <section id="apartments" class="apartments">
         <div class="container">
             <div class="section-title">
@@ -401,16 +509,16 @@
                     <div class="carousel" id="studio-carousel">
                         <div class="carousel-inner">
                             <div class="carousel-item">
-                                <img src="unit-5b-1.jpg" alt="1 Bedroom Apartment View 1">
+                                <img src="/api/placeholder/400/250" alt="Studio Apartment View 1">
                             </div>
                             <div class="carousel-item">
-                                <img src="unit-5b-2.jpg" alt="1 Bedroom Apartment View 2">
+                                <img src="/api/placeholder/400/250" alt="Studio Apartment View 2">
                             </div>
                             <div class="carousel-item">
-                                <img src="unit-5b-3.jpg" alt="1 Bedroom Apartment View 3">
+                                <img src="/api/placeholder/400/250" alt="Studio Apartment View 3">
                             </div>
                             <div class="carousel-item">
-                                <img src="unit-5b-4.jpg" alt="1 Bedroom Apartment View 3">
+                                <img src="/api/placeholder/400/250" alt="Studio Apartment View 4">
                             </div>
                         </div>
                         <div class="carousel-controls">
@@ -421,6 +529,7 @@
                             <div class="carousel-indicator active" data-index="0"></div>
                             <div class="carousel-indicator" data-index="1"></div>
                             <div class="carousel-indicator" data-index="2"></div>
+                            <div class="carousel-indicator" data-index="3"></div>
                         </div>
                     </div>
                     <div class="apartment-details">
@@ -434,25 +543,25 @@
                     <div class="carousel" id="onebedroom-carousel">
                         <div class="carousel-inner">
                             <div class="carousel-item">
-                                <img src="unit-8-1.jpg" alt="1 Bedroom Apartment View 1">
+                                <img src="/api/placeholder/400/250" alt="1 Bedroom Apartment View 1">
                             </div>
                             <div class="carousel-item">
-                                <img src="unit-8-2.jpg" alt="1 Bedroom Apartment View 2">
+                                <img src="/api/placeholder/400/250" alt="1 Bedroom Apartment View 2">
                             </div>
                             <div class="carousel-item">
-                                <img src="unit-8-3.jpg" alt="1 Bedroom Apartment View 3">
+                                <img src="/api/placeholder/400/250" alt="1 Bedroom Apartment View 3">
                             </div>
                             <div class="carousel-item">
-                                <img src="unit-8-4.jpg" alt="1 Bedroom Apartment View 3">
-                            </div> 
-                            <div class="carousel-item">
-                                <img src="unit-8-5.jpg" alt="1 Bedroom Apartment View 1">
+                                <img src="/api/placeholder/400/250" alt="1 Bedroom Apartment View 4">
                             </div>
                             <div class="carousel-item">
-                                <img src="unit-8-6.jpg" alt="1 Bedroom Apartment View 2">
+                                <img src="/api/placeholder/400/250" alt="1 Bedroom Apartment View 5">
                             </div>
                             <div class="carousel-item">
-                                <img src="unit-8-7.jpg" alt="1 Bedroom Apartment View 3">
+                                <img src="/api/placeholder/400/250" alt="1 Bedroom Apartment View 6">
+                            </div>
+                            <div class="carousel-item">
+                                <img src="/api/placeholder/400/250" alt="1 Bedroom Apartment View 7">
                             </div>
                         </div>
                         <div class="carousel-controls">
@@ -463,6 +572,10 @@
                             <div class="carousel-indicator active" data-index="0"></div>
                             <div class="carousel-indicator" data-index="1"></div>
                             <div class="carousel-indicator" data-index="2"></div>
+                            <div class="carousel-indicator" data-index="3"></div>
+                            <div class="carousel-indicator" data-index="4"></div>
+                            <div class="carousel-indicator" data-index="5"></div>
+                            <div class="carousel-indicator" data-index="6"></div>
                         </div>
                     </div>
                     <div class="apartment-details">
@@ -604,6 +717,7 @@
         <div class="container">
             <div class="footer-links">
                 <a href="#about">About</a>
+                <a href="#security">Security</a>
                 <a href="#apartments">Apartments</a>
                 <a href="#amenities">Amenities</a>
                 <a href="#contact">Contact</a>
@@ -632,6 +746,7 @@
             // Setup each carousel
             setupCarousel('studio-carousel');
             setupCarousel('onebedroom-carousel');
+            setupCarousel('security-carousel');
         });
 
         function setupCarousel(carouselId) {
@@ -669,22 +784,3 @@
             // Auto-advance carousel (optional)
             setInterval(function() {
                 currentIndex = (currentIndex < items.length - 1) ? currentIndex + 1 : 0;
-                updateCarousel();
-            }, 5000);
-
-            function updateCarousel() {
-                carouselInner.style.transform = `translateX(-${currentIndex * 100}%)`;
-                
-                // Update active indicator
-                indicators.forEach(function(indicator, index) {
-                    if (index === currentIndex) {
-                        indicator.classList.add('active');
-                    } else {
-                        indicator.classList.remove('active');
-                    }
-                });
-            }
-        }
-    </script>
-</body>
-</html>
