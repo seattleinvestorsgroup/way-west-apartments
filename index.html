@@ -458,14 +458,14 @@
                     
                     <div class="security-features">
                         <div class="security-feature">
-                            <div class="security-feature-icon">🔒</div>
+                            <div class="security-feature-icon">??</div>
                             <div>
                                 <h4>Electronic Gate Access</h4>
                                 <p>Personalized key fobs for residents ensure only authorized entry</p>
                             </div>
                         </div>
                         <div class="security-feature">
-                            <div class="security-feature-icon">👁️</div>
+                            <div class="security-feature-icon">???</div>
                             <div>
                                 <h4>24/7 Surveillance</h4>
                                 <p>Security cameras monitor common areas and entry points around the clock</p>
@@ -596,32 +596,32 @@
             </div>
             <div class="amenities-grid">
                 <div class="amenity-item">
-                    <div class="amenity-icon">🏡</div>
+                    <div class="amenity-icon">??</div>
                     <h3>Energy-Efficient Appliances</h3>
                     <p>All units equipped with energy-saving appliances to reduce utility costs.</p>
                 </div>
                 <div class="amenity-item">
-                    <div class="amenity-icon">🚿</div>
+                    <div class="amenity-icon">??</div>
                     <h3>On-Site Laundry</h3>
                     <p>Convenient laundry facilities available for all residents.</p>
                 </div>
                 <div class="amenity-item">
-                    <div class="amenity-icon">🔒</div>
+                    <div class="amenity-icon">??</div>
                     <h3>Gated Community</h3>
                     <p>Three secure access gates providing enhanced security for all residents.</p>
                 </div>
                 <div class="amenity-item">
-                    <div class="amenity-icon">🛡️</div>
+                    <div class="amenity-icon">???</div>
                     <h3>Onsite Property Manager</h3>
                     <p>Available Monday-Friday from 10am-6pm to assist with your needs.</p>
                 </div>
                 <div class="amenity-item">
-                    <div class="amenity-icon">📶</div>
+                    <div class="amenity-icon">??</div>
                     <h3>Internet Access</h3>
                     <p>High-speed internet available for only $20/month.</p>
                 </div>
                 <div class="amenity-item">
-                    <div class="amenity-icon">💧</div>
+                    <div class="amenity-icon">??</div>
                     <h3>Utilities Included</h3>
                     <p>All utilities except electricity covered for $100/month.</p>
                 </div>
@@ -781,6 +781,23 @@
                 });
             });
 
-            // Auto-advance carousel (optional)
-            setInterval(function() {
-                currentIndex = (currentIndex < items.length - 1) ? currentIndex + 1 : 0;
+function updateCarousel() {
+        // Update carousel position
+        carouselInner.style.transform = `translateX(-${currentIndex * 100}%)`;
+        
+        // Update indicators
+        indicators.forEach((indicator, index) => {
+            if (index === currentIndex) {
+                indicator.classList.add('active');
+            } else {
+                indicator.classList.remove('active');
+            }
+        });
+    }
+
+    // Auto-advance carousel (optional)
+    setInterval(function() {
+        currentIndex = (currentIndex < items.length - 1) ? currentIndex + 1 : 0;
+        updateCarousel();
+    }, 5000); // Change slides every 5 seconds
+}
