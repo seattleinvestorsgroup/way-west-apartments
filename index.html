@@ -250,15 +250,19 @@
         }
         
         .success-message {
-            display: none;
-            background-color: #4CAF50;
-            color: white;
-            padding: 15px;
-            margin-top: 20px;
-            border-radius: 5px;
-            text-align: center;
-        }
-        
+    display: none;
+    background-color: #4CAF50;
+    color: white;
+    padding: 15px;
+    margin-top: 20px;
+    border-radius: 5px;
+    text-align: center;
+    animation: fadeIn 0.5s;
+}
+        @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
         /* Carousel Styling */
         .carousel {
             position: relative;
