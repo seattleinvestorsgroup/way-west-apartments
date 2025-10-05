@@ -267,7 +267,7 @@
         .carousel {
             position: relative;
             overflow: hidden;
-            height: 250px;
+            height: 500px; /* Increased from 400px */
         }
         
         .carousel-inner {
@@ -282,6 +282,13 @@
         }
         
         .carousel-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        /* Video styling for carousel */
+        .carousel-item video {
             width: 100%;
             height: 100%;
             object-fit: cover;
@@ -380,6 +387,14 @@
             border-radius: 0 5px 5px 0;
         }
         
+        .commercial-highlight {
+            background-color: #fff3cd;
+            border-left: 4px solid #ffc107;
+            padding: 1rem;
+            margin: 1.5rem 0;
+            border-radius: 0 5px 5px 0;
+        }
+        
         @media (max-width: 768px) {
             .nav-links {
                 display: none;
@@ -399,10 +414,12 @@
                 <ul class="nav-links">
                     <li><a href="#about">About</a></li>
                     <li><a href="#security">Security</a></li>
+                    <li><a href="#commercial">Commercial Space</a></li>
                     <li><a href="#apartments">Apartments</a></li>
                     <li><a href="#amenities">Amenities</a></li>
                     <li><a href="#contact">Contact</a></li>
                     <li><a href="#location">Location</a></li>
+                    <li><a href="report-issue.html">Report Issue</a></li>
                 </ul>
             </nav>
         </div>
@@ -498,6 +515,128 @@
                         </div>
                     </div>
                     <p style="text-align: center; margin-top: 1rem;"><strong>Our secure gated entrances ensure controlled access to the community</strong></p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Commercial Space Section -->
+    <section id="commercial" class="apartments">
+        <div class="container">
+            <div class="section-title">
+                <h2>Prime Aurora Commercial Space</h2>
+                <p style="text-align: center; font-size: 1.2rem; margin-top: 10px; color: #e74c3c; font-weight: bold;">
+                    FIRST MONTH FREE! — 1,400 sq ft — $3,100/month
+                </p>
+            </div>
+            <div class="apartment-grid">
+                <div class="apartment-card">
+                    <div class="carousel" id="commercial-carousel">
+                        <div class="carousel-inner">
+                            <div class="carousel-item">
+                                <img src="church/church-front.jpeg" alt="Commercial Space Front View">
+                            </div>
+                            <div class="carousel-item">
+                                <img src="church/church-front-2.jpeg" alt="Commercial Space Interior">
+                            </div>
+                            <div class="carousel-item">
+                                <img src="church/church-kitchen-1.jpeg" alt="Kitchen Area">
+                            </div>
+                            <div class="carousel-item">
+                                <img src="church/church-kitchen-2.jpeg" alt="Kitchen Area 2">
+                            </div>
+                            <div class="carousel-item">
+                                <img src="church/church-restroom.jpeg" alt="Restroom Facility">
+                            </div>
+                            <div class="carousel-item">
+                                <img src="church/church-restroom-2.jpeg" alt="Restroom Facility 2">
+                            </div>
+                            <div class="carousel-item">
+                                <img src="church/church-storage-area.jpeg" alt="Storage Area">
+                            </div>
+                            <div class="carousel-item">
+                                <img src="church/church-exterior-front.jpeg" alt="Exterior Front View">
+                            </div>
+                            <div class="carousel-item">
+                                <img src="church/church-exterior-front-2.jpeg" alt="Exterior Front View 2">
+                            </div>
+                            <div class="carousel-item">
+                                <video controls>
+                                    <source src="church/church-interior.mp4" type="video/mp4">
+                                    Your browser does not support the video tag.
+                                </video>
+                            </div>
+                            <div class="carousel-item">
+                                <video controls>
+                                    <source src="church/church-exterior.mp4" type="video/mp4">
+                                    Your browser does not support the video tag.
+                                </video>
+                            </div>
+                        </div>
+                        <div class="carousel-controls">
+                            <button class="carousel-control prev-btn">&lt;</button>
+                            <button class="carousel-control next-btn">&gt;</button>
+                        </div>
+                        <div class="carousel-indicators">
+                            <div class="carousel-indicator active" data-index="0"></div>
+                            <div class="carousel-indicator" data-index="1"></div>
+                            <div class="carousel-indicator" data-index="2"></div>
+                            <div class="carousel-indicator" data-index="3"></div>
+                            <div class="carousel-indicator" data-index="4"></div>
+                            <div class="carousel-indicator" data-index="5"></div>
+                            <div class="carousel-indicator" data-index="6"></div>
+                            <div class="carousel-indicator" data-index="7"></div>
+                            <div class="carousel-indicator" data-index="8"></div>
+                            <div class="carousel-indicator" data-index="9"></div>
+                            <div class="carousel-indicator" data-index="10"></div>
+                        </div>
+                    </div>
+                    <div class="apartment-details">
+                        <h3>PRIME AURORA COMMERCIAL SPACE</h3>
+                        <p><strong>📍 8600 Aurora Ave N, Seattle (Greenwood/Licton Springs area)</strong></p>
+                        <p><strong>💰 $3,100/month ($2.21/sq ft) | FIRST MONTH FREE with 3-year lease!</strong></p>
+                        <p>✅ Available immediately</p>
+                        
+                        <div class="commercial-highlight">
+                            <h4>Perfect for:</h4>
+                            <ul>
+                                <li>✨ Yoga/fitness/dance studio (high ceilings!)</li>
+                                <li>✨ Community/nonprofit/cultural center</li>
+                                <li>✨ Retail showroom or training center</li>
+                                <li>✨ Office or professional services</li>
+                            </ul>
+                        </div>
+                        
+                        <h4>What makes this space special:</h4>
+                        <ul>
+                            <li>🔹 Open, versatile layout — former church with ~10 ft ceilings</li>
+                            <li>🔹 High-visibility corner on busy Aurora Ave N (40K+ vehicles/day)</li>
+                            <li>🔹 Parking included — on-site spaces + street parking</li>
+                            <li>🔹 HVAC maintained by landlord (heat & A/C included)</li>
+                            <li>🔹 Private bathroom in suite</li>
+                            <li>🔹 Transit-friendly — bus lines + quick I-5/Hwy 99 access</li>
+                            <li>🔹 TI/build-out negotiable with landlord approval</li>
+                        </ul>
+                        
+                        <h4>The Numbers:</h4>
+                        <ul>
+                            <li>📏 Size: ~1,400 contiguous sq ft (Spaces A & B combined)</li>
+                            <li>💰 Rent: $3,100/month (utilities separate)</li>
+                            <li>🎁 SPECIAL OFFER: First month FREE with signed 3-year lease!</li>
+                            <li>💳 Deposit: $3,100 (flexible options available)</li>
+                            <li>🏛️ Zoning: Commercial (tenant confirms use with city)</li>
+                        </ul>
+                        
+                        <p><strong>Neighborhood:</strong> Located in the thriving Aurora-Licton Springs/North College Park area — growing community with residential density, near Greenwood and accessible from throughout North Seattle.</p>
+                        
+                        <div style="margin-top: 20px; text-align: center;">
+                            <p><strong>Ready to see it?</strong></p>
+                            <p>👉 Showings: Mon–Fri, 10am–5pm</p>
+                            <p>📞 Text/call Ajit: 214-606-5700</p>
+                            <p>📧 seattleinvestorsgroup@gmail.com</p>
+                            <p style="font-weight: bold; color: #e74c3c;">Move in December, pay nothing until January 2026! Looking for responsible, community-focused tenants.</p>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -610,7 +749,7 @@
                     <p>Convenient laundry facilities available for all residents.</p>
                 </div>
                 <div class="amenity-item">
-                    <div class="amenity-icon">🚿</div>
+                    <div class="amenity-icon"> хоз</div>
                     <h3>Gated Community</h3>
                     <p>Three secure access gates providing enhanced security for all residents.</p>
                 </div>
@@ -722,10 +861,12 @@
             <div class="footer-links">
                 <a href="#about">About</a>
                 <a href="#security">Security</a>
+                <a href="#commercial">Commercial Space</a>
                 <a href="#apartments">Apartments</a>
                 <a href="#amenities">Amenities</a>
                 <a href="#contact">Contact</a>
                 <a href="#location">Location</a>
+                <a href="report-issue.html">Report Issue</a>
             </div>
             <p>&copy; 2025 Way West Apartments. All Rights Reserved.</p>
             <p>This property is an equal housing opportunity provider.</p>
@@ -758,6 +899,7 @@
     setupCarousel('studio-carousel');
     setupCarousel('onebedroom-carousel');
     setupCarousel('security-carousel');
+    setupCarousel('commercial-carousel');
 });
 
 function setupCarousel(carouselId) {
