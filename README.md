@@ -12,5 +12,3 @@ This is the website for Way West Apartments, providing information about our com
 ## Tenant Issue Reporting
 
 Tenants can report maintenance issues using the dedicated form. Issues are saved to a Google Spreadsheet for property management tracking.
-
-To set up the Google Apps Script integration, follow the instructions in `GOOGLE_APPS_SCRIPT_SETUP.md`.

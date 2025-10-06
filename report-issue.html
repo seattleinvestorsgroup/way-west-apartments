@@ -151,54 +151,12 @@
             background: #bdc3c7;
             cursor: not-allowed;
         }
-        
-        .success-message {
-            display: none;
-            background-color: #4CAF50;
-            color: white;
-            padding: 15px;
-            margin-top: 20px;
-            border-radius: 5px;
-            text-align: center;
-            animation: fadeIn 0.5s;
-        }
-        
-        .error-message {
-            display: none;
-            background-color: #f44336;
-            color: white;
-            padding: 15px;
-            margin-top: 20px;
-            border-radius: 5px;
-            text-align: center;
-            animation: fadeIn 0.5s;
-        }
-        
-        .loading {
-            display: none;
-            text-align: center;
-            padding: 15px;
-            margin-top: 20px;
-        }
-        
-        .spinner {
-            border: 4px solid rgba(0, 0, 0, 0.1);
-            border-radius: 50%;
-            border-top: 4px solid #3498db;
-            width: 30px;
-            height: 30px;
-            animation: spin 1s linear infinite;
-            margin: 0 auto;
-        }
-        
-        @keyframes spin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
-        }
-        
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
+
+        /* Google Form iframe styling */
+        .issue-form-container iframe {
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            background: white;
         }
         
         footer {
@@ -259,55 +217,7 @@
             </div>
             
             <div class="issue-form-container">
-                <form id="issue-form">
-                    <div class="form-group">
-                        <label for="tenant-name">Full Name *</label>
-                        <input type="text" id="tenant-name" name="tenant-name" class="form-control" required>
-                    </div>
-                    
-                    <div class="form-row">
-                        <div class="form-group form-col">
-                            <label for="unit-number">Unit Number *</label>
-                            <input type="text" id="unit-number" name="unit-number" class="form-control" required>
-                        </div>
-                        
-                        <div class="form-group form-col">
-                            <label for="contact-number">Contact Number *</label>
-                            <input type="tel" id="contact-number" name="contact-number" class="form-control" required>
-                        </div>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="issue-priority">Issue Priority *</label>
-                        <select id="issue-priority" name="issue-priority" class="form-control" required>
-                            <option value="">Select Priority</option>
-                            <option value="low">Low - Minor issue, no immediate impact</option>
-                            <option value="medium">Medium - Issue affecting comfort/convenience</option>
-                            <option value="high">High - Safety concern or major disruption</option>
-                            <option value="urgent">Urgent - Emergency requiring immediate attention</option>
-                        </select>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="issue-description">Issue Description *</label>
-                        <textarea id="issue-description" name="issue-description" class="form-control" placeholder="Please describe the issue in detail..." required></textarea>
-                    </div>
-                    
-                    <button type="submit" class="btn" id="submit-btn">Submit Issue Report</button>
-                </form>
-                
-                <div class="loading" id="loading">
-                    <div class="spinner"></div>
-                    <p>Submitting your report...</p>
-                </div>
-                
-                <div id="success-message" class="success-message">
-                    Thank you! Your issue has been reported successfully. Our maintenance team will review and respond to your request shortly.
-                </div>
-                
-                <div id="error-message" class="error-message">
-                    There was an error submitting your report. Please try again later.
-                </div>
+                <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSfYk9YLEEoJK9A8ZQ_zFDdvNeKRAPZa0uP2UYdfKoSNlvoZcg/viewform?embedded=true" width="100%" height="1110" frameborder="0" marginheight="0" marginwidth="0" style="max-width: 640px;">Loading…</iframe>
             </div>
         </div>
     </main>
@@ -329,72 +239,5 @@
         </div>
     </footer>
 
-    <script>
-        document.getElementById('issue-form').addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            // Show loading, hide messages
-            document.getElementById('loading').style.display = 'block';
-            document.getElementById('success-message').style.display = 'none';
-            document.getElementById('error-message').style.display = 'none';
-            
-            // Disable submit button
-            const submitBtn = document.getElementById('submit-btn');
-            submitBtn.disabled = true;
-            const originalBtnText = submitBtn.textContent;
-            submitBtn.textContent = 'Submitting...';
-            
-            // Get form data
-            const formData = {
-                "Tenant Name": document.getElementById('tenant-name').value,
-                "Unit Number": document.getElementById('unit-number').value,
-                "Contact Number": document.getElementById('contact-number').value,
-                "Issue Priority": document.getElementById('issue-priority').value,
-                "Issue Description": document.getElementById('issue-description').value,
-                "Date Submitted": new Date().toLocaleString()
-            };
-            
-            // Send data to Google Sheets using Google Apps Script
-            fetch('https://script.google.com/macros/s/AKfycbwc5BtUg6xLSulFSyVs5AHanhGmq5tByLGYno6YfVFMaZyt_F3a5sCjEvA9yMoqs_-vqg/exec', {
-                method: 'POST',
-                body: JSON.stringify(formData),
-                headers: {
-                    'Content-Type': 'application/json'
-                }
-            })
-            .then(response => response.json())
-            .then(data => {
-                if (data.result === 'success') {
-                    // Show success message
-                    document.getElementById('success-message').style.display = 'block';
-                    document.getElementById('error-message').style.display = 'none';
-                    
-                    // Reset form
-                    document.getElementById('issue-form').reset();
-                } else {
-                    throw new Error('Server error');
-                }
-            })
-            .catch(error => {
-                console.error('Error:', error);
-                // Show error message
-                document.getElementById('error-message').style.display = 'block';
-                document.getElementById('success-message').style.display = 'none';
-            })
-            .finally(() => {
-                // Hide loading
-                document.getElementById('loading').style.display = 'none';
-                
-                // Re-enable submit button
-                submitBtn.disabled = false;
-                submitBtn.textContent = originalBtnText;
-                
-                // Scroll to message
-                const messageElement = document.getElementById('success-message').style.display === 'block' ? 
-                    document.getElementById('success-message') : document.getElementById('error-message');
-                messageElement.scrollIntoView({ behavior: 'smooth' });
-            });
-        });
-    </script>
 </body>
 </html>
