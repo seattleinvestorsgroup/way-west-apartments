@@ -46,6 +46,17 @@
             font-size: 1.5rem;
             font-weight: bold;
         }
+
+        .logo a {
+            color: white;
+            text-decoration: none;
+            transition: 0.3s;
+            cursor: pointer;
+        }
+
+        .logo a:hover {
+            color: #3498db;
+        }
         
         .nav-links {
             list-style: none;
@@ -400,15 +411,19 @@
             display: none;
             flex-direction: column;
             cursor: pointer;
-            padding: 5px;
+            padding: 10px;
+            margin-right: 10px;
+            border: 1px solid rgba(255,255,255,0.3);
+            border-radius: 3px;
         }
 
         .hamburger span {
             width: 25px;
             height: 3px;
             background: white;
-            margin: 3px 0;
+            margin: 2px 0;
             transition: 0.3s;
+            display: block;
         }
 
         .hamburger.active span:nth-child(1) {
@@ -423,9 +438,9 @@
             transform: rotate(45deg) translate(-5px, -6px);
         }
 
-        @media (max-width: 768px) {
+        @media (max-width: 780px) {
             .hamburger {
-                display: flex;
+                display: flex !important;
             }
 
             .nav-links {
@@ -476,7 +491,7 @@
     <header>
         <div class="container">
             <nav>
-                <div class="logo">Way West Apartments</div>
+                <div class="logo"><a href="index.html">Way West Apartments</a></div>
                 <div class="hamburger" id="hamburger">
                     <span></span>
                     <span></span>
